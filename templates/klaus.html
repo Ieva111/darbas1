@@ -103,7 +103,7 @@
             <h1 class="fw-light">Wi Fi Pro
               <img src="https://www.itpedia.nl/wp-content/uploads/2018/07/wifi.png" alt="logotipas" width="50" height="50"> </h1>
             <p class="lead text-white">Vartotojo klausimynas</p>
-            <p class="lead text-muted">Šiame puslapyje yra pateiktas klausimynas, kuris galimai išspręs jūsų Wi Fi problemą namuose, norėdami pradėti spauskite mygtuką Pradėti klausimyną, jeigu nenorite atsakinėti į klausimus spauskite mygtuką Noriu tęsti toliau.</p>
+            <p class="lead text-muted">Šiame puslapyje yra pateiktas klausimynas, kuris galimai išspręs jūsų Wi Fi problemą namuose, norėdami pradėti spauskite mygtuką "Pradėti klausimyną", jeigu nenorite atsakinėti į klausimus spauskite mygtuką "Noriu tęsti toliau".</p>
             <main>
               <body>
                 <div id="jquery-script-menu">
@@ -143,8 +143,8 @@
                         'Svetainėje'
                       ],
                       'correctIndex': 1,
-                      'correctResponse': 'Elektronikos įrenginiai, laikomi vonioje, dėl drėgmės gali veikti netinkamai arba sukelti pavojų.',
-                      'incorrectResponse': 'Šiame kambaryje maršrutizatorių statyti galima, jeigu jūs susiduriate su Wi Fi problemomis tęskite toliau.'
+                      'correctResponse': 'Dauguma elektronikos įrenginių yra neatsparūs drėgmei. Dėl to vonioje kylantys vandens garai gali pakenkti maršrutizatoriui ir jis pradės veikti nekorektiškai ir su laiku gali sugesti.',
+                      'incorrectResponse': 'Tai yra tinkamas kambarys prieigos taško montavimui, tęskite toliau.'
                     },
                     {
                       'q': 'Ar jūsų virtuvėje yra mikrobangų krosnelė ar kiti elektromagnetines bangas spinduliuojantys įrenginiai?',
@@ -153,19 +153,19 @@
                         'Ne'
                       ],
                       'correctIndex': 1,
-                      'correctResponse': 'Virtuvės elektromagnetinis laukas neturi įtakoti jūsų Wi Fi signalo.',
-                      'incorrectResponse': 'Mikrobangų krosnelės spinduliuoja stiprias 2,4 GHz dažnio bangas, kurios susikerta su Wi Fi prieigos taško skleidžiamomis to pačio dažnio bangomis. Įvyksta bangų interferencija, ko pasekoje Wi Fi signalas yra slopinamas.'
+                      'correctResponse': 'Jeigu virtuvėje neturite mikrobangų krosnelės ar kitų elektrinį lauką skleidžiančių įrenginių, maršrutizatorių galite įrengti virtuvėje.',
+                      'incorrectResponse': 'Mikrobangų krosnelės spinduliuoja stiprias 2,4 GHz dažnio bangas, Wi Fi signalas veikia tuo pačiu dažniu, dėl to įjungus krosnelę signalas prastėja arba dingsta visiškai. Maršrutizatorius turi būti įrengtas toliau nuo tokių įrenginių.'
                     },
                     {
-                      'q': 'Ar jūsų prieigos taškas įrengtas atviroje vietoje, vieno metro nuo grindų atstumu?',
+                      'q': 'Ar jūsų prieigos taškas įrengtas atviroje vietoje, vieno metro aukščio nuo grindų atstumu?',
                       'options': [
                         'Taip',
                         'Ne',
 
                       ],
                       'correctIndex': 0,
-                      'correctResponse': 'Įrenginys stovi tinkamoje pozicijoje',
-                      'incorrectResponse': 'Pakelti maršrutizatorių aukščiau/nuleisti žemiau. Patartinas vieno metro atstumas nuo grindų. Išimti įrangą iš spintos, spintelės..'
+                      'correctResponse': 'Įrenginio pozicija tinkama.',
+                      'incorrectResponse': 'Maršrutizatorių rekomenduojama įrengti vieno metro aukščio nuo grindų atstumu. Taip pat, siekiant užtikrinti stiprų signalą, šį įrenginį patartina laikyti atviroje vietoje. Įrenginys neturi būti laikomas spintelėje arba įmūrytas į sieną.'
                     },
                     {
                       'q': 'Ar jūsų tinklo įrenginys yra nusidėvėjęs? T.y. įrangai daugiau nei 2 metai, programinė įranga nebuvo atnaujinta?',
@@ -174,8 +174,8 @@
                         'Ne'
                       ],
                       'correctIndex': 1,
-                      'correctResponse': 'Jūsų atveju, įrangos nusidėvėjimas neturėtų įtakoti problemos ',
-                      'incorrectResponse': 'Atnaujinkite maršrutizatoriaus programinę įrangą/pakeiskite maršrutizatorių. Jeigu atlikote arba nenorėjote atlikti šių veiksmų, o problema išlieka tęskite toliau'
+                      'correctResponse': 'Jūsų atveju, įrangos nusidėvėjimas nėra problemos šaknis. ',
+                      'incorrectResponse': 'Atnaujinkite maršrutizatoriaus programinę įrangą/pakeiskite maršrutizatorių. Jeigu atlikote arba nenorėjote atlikti šių veiksmų, o problema išlieka tęskite toliau.'
                     },
                     {
                       'q': 'Ar šalia jūsų prieigos taško yra elektronikos įrenginių tokių kaip: televizorius, Bluetooth įrenginiai?',
@@ -184,8 +184,8 @@
                         'Ne'
                       ],
                       'correctIndex': 1,
-                      'correctResponse': 'Tęskite toliau',
-                      'incorrectResponse': 'Elektriniai įrenginiai tokie kaip televizorius sukelia elektromagnetinį lauką, kuriam gali būti jautrus jūsų maršrutizatorius. Perkelkite maršrutizatorių toliau nuo įrenginių. Problemai išlikus tęskite toliau.'
+                      'correctResponse': 'Jūsų atveju įrenginys yra apsaugotas nuo kitų įrenginių skleidžiamo elektrinio lauko. Tęskite toliau.',
+                      'incorrectResponse': 'Elektriniai įrenginiai, tokie kaip televizorius, sukelia elektromagnetinį lauką, kuriam gali būti jautrus jūsų maršrutizatorius. Bluetooth įrenginiai skleidžia to pačio dažnio signalą kaip ir jūsų Wi Fi maršrutizatorius. Perkelkite maršrutizatorių toliau nuo šių įrenginių. Problemai išlikus tęskite toliau.'
 
                     },
                     {
@@ -196,8 +196,8 @@
                         'Butas sudarytas iš įvarių sienų',
                       ],
                       'correctIndex': 1,
-                      'correctResponse': 'Tęskite toliau',
-                      'incorrectResponse': 'Ęsant galimybei patraukite įrenginį toliau nuo storiausių sienų bute, sienose naudojamos medžiagos sugeria elektromagnetines bangas, kurias skleidžia jūsų Wi Fi maršrutizatorius, tai gali įtakoti iškilusią problemą. Norint parinkti tinkamą maršrutizatoriaus lokaciją namuose, tęskite toliau'
+                      'correctResponse': 'Sienų storis įtakoja signalo kokybę. Tęskite toliau.',
+                      'incorrectResponse': 'Ęsant galimybei patraukite įrenginį toliau nuo storiausių sienų bute, sienose naudojamos medžiagos sugeria elektromagnetines bangas, kurias skleidžia jūsų Wi Fi maršrutizatorius, tai gali įtakoti iškilusią problemą. Norint parinkti tinkamą maršrutizatoriaus lokaciją namuose, tęskite toliau.'
                     }
                   ]
                 });
@@ -209,23 +209,17 @@
                 <a href="{{ url_for ('irankis')}}" class="text-white btn btn-outline-warning me-2 mgt2">Noriu tęsti toliau</a>
               </form>
 
-
               </body>
 
-      <main>
-
-    <main>
-
-
-    </main>
-<div class="cover-container d-flex w-1000 h-1000 p-3 mx-auto flex-column"
-  <header class="mb-auto">
-    <div>
-
   </header>
-
+  
+  <br>
+</br>
 
   <footer class="mt-auto text-white-50">
+    <div class="cover-container d-flex w-1000 h-1000 p-3 mx-auto flex-column"
+      <header class="mb-auto">
+        <div>
 
     <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
   </footer>
