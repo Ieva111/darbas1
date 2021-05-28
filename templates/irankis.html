@@ -83,6 +83,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for ('duk')}}">D.U.K.</a>
             </li>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning me-2 mgt"> Pasirinkite brėžinį arba nubraižykite patys</a>
+          </li>
           </ul>
           <form class="d-flex">
             <a href="{{ url_for ('rez')}}" class="btn btn-warning me-2 mgt">Pateikti</a>
@@ -384,81 +388,61 @@
                     <br/>
                     <li><button class="btn btn-warning fully " id="select_mode" style="box-shadow:2px 2px 3px #ccc;"><i class="fa fa-2x fa-mouse-pointer" aria-hidden="true"></i></button></li>
                     <br/>
+                    <br>
+
+                    <br>  <div class="col-md-3 col-xs-3 boxMouseOver"><img src="/static/newPlanSquare1.jpg"  class="img-responsive" style="margin-top:10px" onclick="initHistory('newSquare');$('#myModal').modal('toggle')"/></div>
+                  </br>
+                    <br>  <div class="col-md-3 col-xs-3 boxMouseOver"><img src="/static/newPlanL.jpg"  class="img-responsive" style="margin-top:20px" onclick="initHistory('newL');$('#myModal').modal('toggle')"/></div>
+                  </br>
+
+                  </br>
                     <li>
                       <br>
                     <button class="btn btn-warning fully " style="margin-bottom:0px" id="line_mode" data-toggle="tooltip" data-placement="right" title="Make walls">Siena</button>
-                  </br>
-                  <br>
-                    <button class="btn btn-warning fully " style="margin-bottom:0px" id="partition_mode" data-toggle="tooltip" data-placement="right" title="Make partitions wall">Sienelė</button>
-                </br>
-                    <br>
                     <div class="funkyradio"  style="font-size:0.8em">
                       <div class="funkyradio-success">
                         <input type="checkbox" id="multi" checked/>
-                        <label for="multi">Keletas</label>
                       </div>
                     </div>
                   </br>
                     </li>
-                    <li><button class="btn btn-warning fully " id="node_mode"><i class="fa fa-2x fa-scissors" aria-hidden="true"></i></button></li>
-                    <br/>
-                    <li><button class="btn btn-warning fully " id="distance_mode" data-toggle="tooltip" data-placement="right" title="Add a measurement">Liniuotė</button></li>
-                    <br/>
-                    <div id="door_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#ffc13b;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
-                      <button class="btn fully door" id="aperture">Plačios</button>
-                      <button class="btn fully door" id="simple">Paprastos</button>
-                      <button class="btn fully door" id="double">Dvigubos</button>
-                      <button class="btn fully door" id="pocket">Arka</button>
-                    </div>
-                    <li><button class="btn btn-warning fully " id="door_mode" onclick="$('.sub').hide();$('#door_list').toggle(200);$('#window_list').hide();">Durys</button></li>
-
-                    <div id="window_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#ffc13b;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
-                      <button class="btn fully window" id="fix">Uždaryti</button>
-                      <button class="btn fully window" id="flap">Paprasti</button>
-                      <button class="btn fully window" id="twin">Dvigubi</button>
-                      <button class="btn fully window" id="bay">Slenkantys</button>
-                    </div>
-                    <li><button class="btn btn-warning fully " id="window_mode" onclick="$('.sub').hide();$('#window_list').toggle(200);$('#door_list').hide()">Langai</button></li>
-                    <li><button class="btn btn-warning fully object" id="stair_mode" onclick="$('.sub').hide();$('#door_list').hide()">Laiptai</button></li>
-                    <br/>
-                    <div id="energy_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#ffc13b;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:40px;width:600px">
-                      <div style="width:600px;float:left;padding:10px">
+                    <div id="energy_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#ffc13b;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:40px;width:170px">
+                      <div style="width:130px;float:left;padding:10px">
                       <p>Tinklo įranga</p>
                       <div style="float:left;padding:10px;margin:5px;border:1px solid #ffc13b;border-radius:5px">
                       </div>
-                      <div style="width:130px;float:left;padding:10px;margin:5px;border:1px solid #ffc13b;border-radius:5px">
-                        <button class="btn fully object" id="www">Maršrutizatorius</button>
+                      <div style="width:120px;float:left;padding:10px;margin:5px;">
+                        <button class="btn btn-warning fully object" id="www">Maršrutizatorius</button>
                       </div>
                       </div>
-
                   </div>
                   <li><button class="btn btn-warning fully " id="object_mode" onclick="$('.sub').hide();$('#energy_list').toggle(200);">Įranga</button></li>
                   <!-- <li><button class="btn btn-default fully " id="object_mode" onclick="$('.sub').hide();$('#object_list').toggle(200);">FURNITURE</button></li> -->
                   <br/>
 
-                <div id="layer_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#ffc13b;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:100px;width:200px">
+                <div id="layer_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#ffc13b;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:100px;width:220px">
                   <div class="funkyradio" style="font-size:0.8em">
                   <div class="funkyradio-info">
                     <input type="checkbox" id="showRib" checked/>
-                    <label for="showRib">Measurement</label>
+                    <label for="showRib">Išmatavimai</label>
                   </div>
                   </div>
                   <div class="funkyradio" style="font-size:0.8em">
                     <div class="funkyradio-info">
                       <input type="checkbox" id="showArea" checked/>
-                      <label for="showArea">Surface</label>
+                      <label for="showArea">Paviršius</label>
                     </div>
                   </div>
                   <div class="funkyradio" style="font-size:0.8em">
                     <div class="funkyradio-info">
                       <input type="checkbox" id="showLayerRoom" checked/>
-                      <label for="showLayerRoom">Texture</label>
+                      <label for="showLayerRoom">Medžiaga</label>
                     </div>
                   </div>
                   <div class="funkyradio" style="font-size:0.8em">
                     <div class="funkyradio-info">
                       <input type="checkbox" id="showLayerEnergy" checked/>
-                      <label for="showLayerEnergy">Energy</label>
+                      <label for="showLayerEnergy">Įranga</label>
                     </div>
                   </div>
                 </div>
@@ -472,33 +456,6 @@
                 </ul>
               </div>
 
-              <div class="modal fade col-xs-9 col-md-12" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Welcome Home Rough Editor v0.93</h4>
-                    </div>
-                    <div class="modal-body">
-                      <div id="recover">
-                        <p>A plan exists into historic, would you like recover him ?</p>
-                        <button class="btn btn-default" onclick="initHistory('recovery');$('#myModal').modal('toggle')">OUI</button></p>
-                        <hr/>
-                        <p>Or are you prefer start a new plan ?</p>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3 col-xs-3 boxMouseOver" style="min-height:140px;margin:15px;background:url('newPlanEmpty.jpg')"><img src="newPlanEmpty.jpg" class="img-responsive" onclick="initHistory();$('#myModal').modal('toggle')"/></div>
-                        <div class="col-md-3 col-xs-3 boxMouseOver"  style="min-height:140px;margin:15px;background:url('newPlanEmpty.jpg')"><img src="newPlanSquare.jpg"  class="img-responsive" style="margin-top:10px" onclick="initHistory('newSquare');$('#myModal').modal('toggle')"/></div>
-                        <div class="col-md-3 col-xs-3 boxMouseOver"  style="min-height:140px;margin:15px;background:url('newPlanEmpty.jpg')"><img src="newPlanL.jpg"  class="img-responsive" style="margin-top:20px" onclick="initHistory('newL');$('#myModal').modal('toggle')"/></div>
-                      </div>
-                    </div>
-                    <!-- <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
-                      <button type="button" class="btn btn-primary">YES</button>
-                    </div> -->
-                  </div>
-                </div>
-              </div>
 
               <div class="modal fade" id="textToLayer" tabindex="-1" role="dialog" aria-labelledby="textToLayerLabel">
                 <div class="modal-dialog" role="document">
