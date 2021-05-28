@@ -60,6 +60,55 @@
               font-size: 3.5rem;
             }
           }
+          
+          #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ffc13b;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+          @-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 30s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
         </style>
 
 
@@ -98,8 +147,32 @@
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">Wi Fi Pro
               <img src="https://www.itpedia.nl/wp-content/uploads/2018/07/wifi.png" alt="logotipas" width="50" height="50"> </h1>
-            <p class="lead text-white">Jūsų rezultatai</p>
 
+
+<br></br>
+            <body onload="myFunction()" style="margin:0;">
+            
+            <div id="loader"></div>
+            
+            <div style="display:none;" id="myDiv" class="animate-bottom">
+              <h2>Jūsų rezultatai</h2>
+              <br></br>
+              <p>Paveikslėlis</p>
+            </div>
+            
+            <script>
+            var myVar;
+            
+            function myFunction() {
+              myVar = setTimeout(showPage, 15000);
+            }
+            
+            function showPage() {
+              document.getElementById("loader").style.display = "none";
+              document.getElementById("myDiv").style.display = "block";
+            }
+            </script>
+            
           </div>
         </div>
       </section>
@@ -109,19 +182,6 @@
 
 
     </main>
-<div class="cover-container d-flex w-1000 h-1000 p-3 mx-auto flex-column"
-  <header class="mb-auto">
-    <div>
-
-  </header>
-
-
-  <footer class="mt-auto text-white-50">
-
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-  </footer>
-</div>
-
 
 
   </body>
