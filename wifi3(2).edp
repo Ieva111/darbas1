@@ -1,0 +1,134 @@
+//
+// 40x40 plotas su 0.5 parastemis
+//
+real[int] juoda=[
+4./6., 1 , 0.1 //tamsiai melyna
+];
+
+real a = 80, b = 60, c = 0.5;
+//pagrindinis remelis
+border a00(t=0, 1) {x=a*t; y=0; label=1;}
+border a10(t=0, 1) {x=a; y=b*t; label=1;}
+border a20(t=1, 0) {x=a*t; y=b; label=1;}
+border a30(t=1, 0) {x=0; y=b*t; label=1;}
+//parastes
+border a01(t=0, 1) {x=c+(a-c*2)*t; y=c; label=1;}
+border a11(t=0, 1) {x=a-c; y=c+(b-c*2)*t; label=1;}
+border a21(t=1, 0) {x=c+(a-c*2)*t; y=b-c; label=1;}
+border a31(t=1, 0) {x=c; y=c+(b-c*2)*t; label=1;}
+
+//
+// horizotanli siena
+// e -plotis
+// q- pozicija y asyje
+// d-ilgis
+// p- pozicija x asyje
+
+real p = 1, q = 30, d = 50, e = 2;
+
+border b00(t=0, 1) {x=p+d*t; y=q; label=3;}
+border b10(t=0, 1) {x=p+d; y=q+e*t; label=3;}
+border b20(t=1, 0) {x=p+d*t; y=q+e; label=3;}
+border b30(t=1, 0) {x=p; y=q+e*t; label=3;}
+
+//
+// vertikali siena
+// r - horizontali pozicija
+// u - vertikalus ilgis
+// s - sienos pozicija y asyje
+// j - sienos storis
+
+real r = 52, s = 1 , j = 2, u = 58;
+
+border c00(t=0, 1) {x=r+j*t; y=s; label=3;}
+border c10(t=0, 1) {x=r+j; y=s+u*t; label=3;}
+border c20(t=1, 0) {x=r+j*t; y=s+u; label=3;}
+border c30(t=1, 0) {x=r; y=s+u*t; label=3;}
+
+
+
+int n=10;
+mesh Sh = buildmesh(a00(10*n) + a10(10*n) + a20(10*n) + a30(10*n)
+    + a01(10*n) + a11(10*n) + a21(10*n) + a31(10*n)
+    + b00(5*n) + b10(5*n) + b20(5*n) + b30(5*n)
+    + c00(5*n) + c10(5*n) + c20(5*n) + c30(5*n));
+plot(Sh, fill=true, wait=1);
+
+//
+// HSV spalvu masyvas
+//
+
+real[int] colors=[
+4./6., 1 , 0.5, //tamsiai melyna
+4./6., 1 , 1, //melyna
+5./6., 1 , 1, //magenta
+1, 0.5 , 1, //sviesiai raudona
+//1, 1. , 1 , //raudona
+1, 1. , 1 //raudona
+//1, 0.5 , 1 //sviesiai raudona
+];
+
+real[int] viso(153) ;
+for (int i=0;i<26;i++){
+   viso[3*i]=0.008*i;
+   viso[3*i+1]=1;
+   viso[3*i+2]=1;
+}
+
+for (int i=26;i<51;i++){
+  viso[3*i]=0.5+0.008*(i-26);
+  viso[3*i+1]=1;
+  viso[3*i+2]=1;
+}
+
+for (int i=0;i<51;i++){
+  viso[3*i]=0.01*i;
+  viso[3*i+1]=1;
+  viso[3*i+2]=1;
+}
+
+
+int bx;
+for (bx = 1; bx <= 5; bx++){
+    border C(t=0, 2*pi){x=40+cos(t); y=bx*17+sin(t); label=2;}
+
+    mesh Th = buildmesh(a00(10*n) + a10(10*n) + a20(10*n) + a30(10*n)
+        + a01(10*n) + a11(10*n) + a21(10*n) + a31(10*n) + C(40)
+        + b00(5*n) + b10(5*n) + b20(5*n) + b30(5*n)
+        + c00(5*n) + c10(5*n) + c20(5*n) + c30(5*n));
+
+fespace Vh(Th, P1);
+func real wall() {
+   if (Th(x,y).region == Th(0.5,0.5).region || Th(x,y).region == Th(7,20.5).region || Th(x,y).region == Th(30.5,2).region) { return 1; }
+   else { return 0; }
+}
+
+Vh<complex> v,w;
+
+randinit(900);
+Vh wallreflexion = randreal1();
+Vh<complex> wallabsorption = randreal1()*0.5i;
+Vh k = 52; // 2.4Ghz
+//Vh k = 104; // 5Ghz
+//Vh k = 6; // Default example
+
+
+cout << "Reflexion of walls min/max: " << wallreflexion[].min << " " << wallreflexion[].max << "\n";
+cout << "Absorption of walls : " << wallabsorption[].min << " "<<   wallabsorption[].max << "\n";
+
+problem muwave(v,w) =
+    int2d(Th)(
+          (v*w*k^2)/(1+(wallreflexion+wallabsorption)*wall())^2
+        - (dx(v)*dx(w)+dy(v)*dy(w))
+    )
+    + on(2, v=1)
+    ;
+
+muwave;
+Vh vm = log(real(v)^2 + imag(v)^2);
+
+string psfailas = "wifi" + bx + ".ps";
+cout << "Iteracija : " << bx << "\n"; 
+plot(vm, ps=psfailas, fill=true, value=1, nbiso=53, hsv=colors);
+}
+
