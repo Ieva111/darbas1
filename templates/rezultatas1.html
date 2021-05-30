@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbars/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
+    <script src="{{url_for('static', filename = 'bootstrap.bundle.min.js')}}"></script>
+    <link href="{{url_for('static', filename = 'cover.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'bootstrap.min.css')}}" rel="stylesheet">
+    <title>Wi Fi Pro Rezultatai</title>
+
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+          }
+
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+        </style>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+          }
+
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+
+          #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ffc13b;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+          @-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 30s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 }
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+        </style>
+
+
+      </head>
+      <body>
+    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for ('darbas')}}">Wi Fi Pro</a>
+        <img src="https://www.itpedia.nl/wp-content/uploads/2018/07/wifi.png" alt="logotipas" width="50" height="50">
+        <button class="navbar-toggler navbar-dark " type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for ('darbas')}}">Pagrindinis puslapis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for ('duk')}}">D.U.K.</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning mgt" type="submit">Paieška</button>
+            <a href="{{ url_for ('klausimynas')}}" class="btn btn-warning me-2 mgt">Pradėti</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+<body class="text-center text-white bg-dark">
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Wi Fi Pro
+              <img src="https://www.itpedia.nl/wp-content/uploads/2018/07/wifi.png" alt="logotipas" width="50" height="50"> </h1>
+
+
+<br></br>
+            <body onload="myFunction()" style="margin:0;">
+
+            <div id="loader"></div>
+
+            <div style="display:none;" id="myDiv" class="animate-bottom">
+              <h2>Jūsų rezultatai</h2>
+              <p> Šiame puslapyje pateikti jūsų pasirinkto brėžinio Wi Fi sklidimo laukai iš skirtingų pozicijų. Pasirinkite vieną iš jums tinkamų pozicijų prieigos taško montavimui. </p>
+              <br></br>
+              <p><img src="/static/1.jpg"></p>
+              <p><img src="/static/2.jpg"></p>
+              <p><img src="/static/3.jpg"></p>
+            </div>
+
+            <script>
+            var myVar;
+
+            function myFunction() {
+              myVar = setTimeout(showPage, 900);
+            }
+
+            function showPage() {
+              document.getElementById("loader").style.display = "none";
+              document.getElementById("myDiv").style.display = "block";
+            }
+            </script>
+
+          </div>
+        </div>
+      </section>
+
+
+    <main>
+
+
+    </main>
+
+
+  </body>
+</html>
